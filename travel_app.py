@@ -38,8 +38,8 @@ cost_data = pd.DataFrame({
 })
 
 # Dark-themed pie chart
-fig, ax = plt.subplots(figsize=(3, 3), facecolor='none')  # Transparent background
-colors = ['#1f77b4', '#ff7f0e', '#2ca02c']  # Soft dark-friendly colors
+fig, ax = plt.subplots(figsize=(3, 3), facecolor='none')
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c'] 
 
 wedges, texts, autotexts = ax.pie(
     cost_data["Cost"],
@@ -50,15 +50,13 @@ wedges, texts, autotexts = ax.pie(
     textprops={'color': 'white'}
 )
 
-# Style the plot
-ax.axis('equal')  # Equal aspect ratio
-fig.patch.set_alpha(0.0)  # Transparent background for the figure
+ax.axis('equal')  
+fig.patch.set_alpha(0.0)  
 for text in texts + autotexts:
-    text.set_color('white')  # Set all text to white for dark mode
+    text.set_color('white') 
 
 st.pyplot(fig)
 
-# Optional: Show cost breakdown as a table
 st.write("### Cost Table")
 st.dataframe(cost_data.set_index("Category"))
 
